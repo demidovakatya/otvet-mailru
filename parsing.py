@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 
 START_URL = 'https://otvet.mail.ru'
 QUESTIONS_DIR = 'questions'
+N_QUESTIONS = 5000
 
 
 def make_question_url(question_id):
@@ -49,10 +50,10 @@ def get_start_end():
     min_id = min(q_ids)
 
     end   = min_id
-    if end <= 10000: 
+    if end <= N_QUESTIONS: 
         start = 0
     else:            
-        start = min_id - 10000
+        start = min_id - N_QUESTIONS
     return start, end
 
 
@@ -70,5 +71,5 @@ def main():
     
     print('Finishing: #{}'.format(end))
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     main()
